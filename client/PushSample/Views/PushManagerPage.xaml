@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PushSample.Views.PushManagerPage"
+             Title="{Binding Title}">
+    <ScrollView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical" Padding="0,30,0,30">
+            <StackLayout HorizontalOptions="FillAndExpand"  VerticalOptions="CenterAndExpand"  Orientation="Horizontal">
+                <Label Text="メッセージ："/>
+                <Entry Text="{Binding MessageEntry.Value}" HorizontalOptions="FillAndExpand"/>
+            </StackLayout>
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection>
+                        <ViewCell>
+                            <Button Command="{Binding PushCommand}" Text="全体通知" CommandParameter="{Binding ButtonTypes.Value[0]}"/>
+                        </ViewCell>
+                    </TableSection>
+                    <TableSection>
+                        <EntryCell Text="{Binding UserName.Value}" Label="ユーザ名："/>
+                        <ViewCell>
+                            <Button Command="{Binding PushCommand}" Text="ユーザ通知" CommandParameter="{Binding ButtonTypes.Value[1]}"/>
+                        </ViewCell>
+                    </TableSection>
+                    <TableSection Title="料理" >
+                        <SwitchCell Text="{Binding Categories.Value[0].ShowName}" On="{Binding Categories.Value[0].Flag}"/>
+                        <SwitchCell Text="{Binding Categories.Value[1].ShowName}" On="{Binding Categories.Value[1].Flag}"/>
+                        <SwitchCell Text="{Binding Categories.Value[2].ShowName}" On="{Binding Categories.Value[2].Flag}"/>
+                        <ViewCell>
+                            <Button Command="{Binding PushCommand}" Text="カテゴリ別通知" CommandParameter="{Binding ButtonTypes.Value[2]}"/>
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms"
+             prism:ViewModelLocator.AutowireViewModel="True"
+             x:Class="PushSample.Views.PushRegisterPage"
+             Title="{Binding Title}">
+    <ScrollView HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" Orientation="Vertical">
+            <TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection>
+                        <EntryCell Text="{Binding UserName.Value}" Label="ユーザ名："/>
+                        <ViewCell>
+                            <Button Text="ユーザを登録" Command="{Binding RegisterCommand}" CommandParameter="{Binding ButtonTypes.Value[0]}"/>
+                        </ViewCell>
+                    </TableSection>
+                    <TableSection Title="料理" >
+                        <SwitchCell Text="{Binding Categories.Value[0].ShowName}" On="{Binding Categories.Value[0].Flag}"/>
+                        <SwitchCell Text="{Binding Categories.Value[1].ShowName}" On="{Binding Categories.Value[1].Flag}"/>
+                        <SwitchCell Text="{Binding Categories.Value[2].ShowName}" On="{Binding Categories.Value[2].Flag}"/>
+                        <ViewCell>
+                            <Button Text="カテゴリ登録" Command="{Binding RegisterCommand}" CommandParameter="{Binding ButtonTypes.Value[1]}" />
+                        </ViewCell>
+                    </TableSection>
+                </TableRoot>
+            </TableView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
