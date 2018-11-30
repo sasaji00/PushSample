@@ -144,50 +144,48 @@ Azure Portal で GUI で作成していたプッシュ通知の環境構築を A
   ```
 
 #### 【任意設定項目】
-##### [Android でプッシュ通知をする場合]
-Android でプッシュ通知をする場合は、以下の項目を記述します。  
-**※プッシュ通知をしない場合は設定不要です。デフォルトの空文字から変更しないでください。**  
+- Android でプッシュ通知をする場合  
+  Android でプッシュ通知をする場合は、以下の項目を記述します。  
+  **※プッシュ通知をしない場合は設定不要です。デフォルトの空文字から変更しないでください。**  
 
-- **$GcmApiKey**  
-  Firebase コンソールから取得した[サーバーキー]、または [以前のサーバーキー] を記述します。  
-  ただし、$GcmApiKey は以下の場合のみ有効です。
-  - Notification Hubs が構築済み、かつ手動で Notification Hubs の Google(GCM) の設定を行った状態でスクリプトを実行した場合  
+  - **$GcmApiKey**  
+    Firebase コンソールから取得した[サーバーキー]、または [以前のサーバーキー] を記述します。  
+    ただし、$GcmApiKey は以下の場合のみ有効です。
+    - Notification Hubs が構築済み、かつ手動で Notification Hubs の Google(GCM) の設定を行った状態でスクリプトを実行した場合  
+    ```
+    記述例）
+    # Google(GCM) の API キー
+    $GcmApiKey = "AIzaSyBoPF37AHxdKhUu8n3iIPr9gAdk0mnkHXMa";
+    ```
 
-  **上記以外の場合は、スクリプト実行後に手動で設定してください。**  
-  ```
-  記述例）
-  # Google(GCM) の API キー
-  $GcmApiKey = "AIzaSyBoPF37AHxdKhUu8n3iIPr9gAdk0mnkHXMa";
-  ```
+- iOS でプッシュ通知をする場合  
+  iOS でプッシュ通知をする場合は、以下の項目を記述します。  
+  **※プッシュ通知をしない場合は設定不要です。デフォルトの空文字から変更しないでください。**
 
-##### 【iOS でプッシュ通知をする場合】
-iOS でプッシュ通知をする場合は、以下の項目を記述します。  
-**※プッシュ通知をしない場合は設定不要です。デフォルトの空文字から変更しないでください。**
+  - **$ApnsEndpoint**  
+    サンプルアプリの実行環境では、[gateway.sandbox.push.apple.com] を記述します。  
+    ```
+    記述例）
+    # エンドポイント(gateway.push.apple.com か gateway.sandbox.push.apple.comを設定)
+    $ApnsEndpoint = "gateway.sandbox.push.apple.com";
+    ```
 
-- **$ApnsEndpoint**  
-  サンプルアプリの実行環境では、[gateway.sandbox.push.apple.com] を記述します。  
-  ```
-  記述例）
-  # エンドポイント(gateway.push.apple.com か gateway.sandbox.push.apple.comを設定)
-  $ApnsEndpoint = "gateway.sandbox.push.apple.com";
-  ```
+  - **$ApnsCertificateFile**  
+    Apple 証明書要求ファイル名を記述します。  
+    **※ファイル名の先頭にファイルセパレータの"\\"を付けてください。**
+    ```
+    記述例）
+    # Apple 証明書要求ファイル名
+    $ApnsCertificateFile = "\Certificates_aps_development.p12";
+    ```
 
-- **$ApnsCertificateFile**  
-  Apple 証明書要求ファイル名を記述します。  
-  **※ファイル名の先頭にファイルセパレータの"\\"を付けてください。**
-  ```
-  記述例）
-  # Apple 証明書要求ファイル名
-  $ApnsCertificateFile = "\Certificates_aps_development.p12";
-  ```
-
-- **$ApnsCertificateKey**  
-  Apple 証明書要求ファイル作成時に設定したパスワードを記述します。  
-  ```
-  記述例）
-  # Apple 証明書要求ファイル作成時のパスワード
-  $ApnsCertificateKey = "12345";
-  ```
+  - **$ApnsCertificateKey**  
+    Apple 証明書要求ファイル作成時に設定したパスワードを記述します。  
+    ```
+    記述例）
+    # Apple 証明書要求ファイル作成時のパスワード
+    $ApnsCertificateKey = "12345";
+    ```
 
 環境設定ファイル (EnvFile.ps1) の記述例です。
 
