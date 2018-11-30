@@ -26,7 +26,7 @@ Azure Portal で GUI で作成していたプッシュ通知の環境構築を A
   Azure Notification Hubs の管理はまだ Azure PowerShell の PowerShell コマンドレットに含まれていません。  
   Azure Notification Hubs を構築するには、 Microsoft Azure Notification Hubs NuGet パッケージに用意されている .NET クライアントを使用します。
 
-##【前提条件】
+## 【前提条件】
 1. [Azure サブスクリプション](https://azure.microsoft.com/ja-jp/free/)が取得済みであること
 
 2. [PowerShell](https://docs.microsoft.com/ja-jp/powershell/scripting/powershell-scripting?view=powershell-5.1) がインストールされていること  
